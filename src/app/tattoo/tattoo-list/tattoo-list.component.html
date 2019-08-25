@@ -1,0 +1,147 @@
+<div class="body" fxLayout="row">
+  <div fxLayout="column">
+    <div class="costumer">
+      <mat-card >
+        <mat-table [dataSource]="dataSource">
+          <ng-container matColumnDef="firstName">
+            <mat-header-cell *matHeaderCellDef> First Name </mat-header-cell>
+            <mat-cell *matCellDef="let costumer" (click)="getCostumer(costumer)"> {{costumer.firstName}}</mat-cell>
+          </ng-container>
+          <ng-container matColumnDef="middleName">
+            <mat-header-cell *matHeaderCellDef> Middle Name </mat-header-cell>
+            <mat-cell *matCellDef="let costumer" (click)="getCostumer(costumer)"> {{costumer.middleName}}</mat-cell>
+          </ng-container>
+          <ng-container matColumnDef="lastName">
+            <mat-header-cell *matHeaderCellDef> LastName </mat-header-cell>
+            <mat-cell *matCellDef="let costumer" (click)="getCostumer(costumer)"> {{costumer.lastName}} </mat-cell>
+          </ng-container>
+          <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+          <mat-row *matRowDef="let row; columns: displayedColumns"></mat-row>
+        </mat-table>
+      </mat-card>
+    </div>
+    <mat-paginator #costumerPaginator [length]="pageLength"
+                   [pageSize]="5"
+                   [pageSizeOptions]="[5, 10, 25, 100]" showFirstLastButtons>
+    </mat-paginator>
+  </div>
+  <div class="costumer">
+    <mat-card *ngIf="thisCostumer">
+      <mat-card-header >
+        <mat-card-title>
+          Tatto Colour Sheet for {{thisCostumer.firstName}} {{thisCostumer.lastName}}
+        </mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        <form (ngSubmit)="finishedTattoo(thisCostumer)" [formGroup]="finishedTattooForm" novalidate fxLayout="column">
+          <div class="row"fxLayout="row">
+            <mat-form-field>
+              <input matInput placeholder="First color" formControlName="firstColor">
+              <mat-error *ngIf="fcErr1('firstColor', 'required')">First color is required</mat-error>
+              <mat-error *ngIf="finishedTattooForm.get('firstColor').hasError('minlength') && !finishedTattooForm.get('firstColor').hasError('required')">Color Name must be at least 2 charaters</mat-error>
+            </mat-form-field>
+            <mat-form-field >
+              <input matInput placeholder="Batch Number" formControlName="firstColorBatch">
+              <mat-error *ngIf="fcErr1('firstColorBatch', 'required')">First color is required</mat-error>
+              <mat-error *ngIf="finishedTattooForm.get('firstColorBatch').hasError('minlength') && !finishedTattooForm.get('firstColorBatch').hasError('required')">Color Name must be at least 2 charaters</mat-error>
+            </mat-form-field>
+          </div>
+          <div class="row"fxLayout="row">
+            <mat-form-field>
+              <input matInput placeholder="Second Color" formControlName="secondColor">
+              <mat-error *ngIf="fcErr1('secondColor', 'minlength')">Color Name must be at least 2 charaters</mat-error>
+            </mat-form-field>
+            <mat-form-field>
+              <input matInput placeholder="Batch Number" formControlName="secondColorBatch">
+              <mat-error *ngIf="fcErr1('secondColorBatch', 'minlength')">Color Name must be at least 2 charaters</mat-error>
+            </mat-form-field>
+          </div>
+          <div class="row"fxLayout="row">
+            <mat-form-field>
+              <input matInput placeholder="Third color" formControlName="thirdColor">
+              <mat-error *ngIf="fcErr1('thirdColor', 'minlength')">Color Name must be at least 2 charaters</mat-error>
+            </mat-form-field>
+            <mat-form-field>
+              <input matInput placeholder="Batch Number" formControlName="thirdColorBatch">
+              <mat-error *ngIf="fcErr1('thirdColorBatch', 'minlength')">Color Name must be at least 2 charaters</mat-error>
+            </mat-form-field>
+          </div>
+          <div class="row"fxLayout="row">
+            <mat-form-field>
+              <input matInput placeholder="Fourth color" formControlName="fourthColor">
+              <mat-error *ngIf="fcErr1('fourthColor', 'minlength')">Color Name must be at least 2 charaters</mat-error>
+            </mat-form-field>
+            <mat-form-field>
+              <input matInput placeholder="Batch Number" formControlName="fourthColorBatch">
+              <mat-error *ngIf="fcErr1('fourthColorBatch', 'minlength')">Color Name must be at least 2 charaters</mat-error>
+            </mat-form-field>
+          </div>
+          <div class="row"fxLayout="row">
+            <mat-form-field>
+              <input matInput placeholder="Fifth color" formControlName="fifthColor">
+              <mat-error *ngIf="fcErr1('fifthColor', 'minlength')">Color Name must be at least 2 charaters</mat-error>
+            </mat-form-field>
+            <mat-form-field>
+              <input matInput placeholder="Batch Number" formControlName="fifthColorBatch">
+              <mat-error *ngIf="fcErr1('fifthColorBatch', 'minlength')">Color Name must be at least 2 charaters</mat-error>
+            </mat-form-field>
+          </div>
+          <div class="row"fxLayout="row">
+            <mat-form-field>
+              <input matInput placeholder="Sixth Color" formControlName="sixthColor">
+              <mat-error *ngIf="fcErr1('sixthColor', 'minlength')">Color Name must be at least 2 charaters</mat-error>
+            </mat-form-field>
+            <mat-form-field>
+              <input matInput placeholder="Batch Number" formControlName="sixthColorBatch">
+              <mat-error *ngIf="fcErr1('sixthColorBatch', 'minlength')">Color Name must be at least 2 charaters</mat-error>
+            </mat-form-field>
+          </div>
+          <div class="row"fxLayout="row">
+            <mat-form-field>
+              <input matInput placeholder="Seventh color" formControlName="seventhColor">
+              <mat-error *ngIf="fcErr1('seventhColor', 'minlength')">Color Name must be at least 2 charaters</mat-error>
+            </mat-form-field>
+            <mat-form-field>
+              <input matInput placeholder="Batch Number" formControlName="seventhColorBatch">
+              <mat-error *ngIf="fcErr1('seventhColorBatch', 'minlength')">Color Name must be at least 2 charaters</mat-error>
+            </mat-form-field>
+          </div>
+          <div class="row"fxLayout="row">
+            <mat-form-field>
+              <input matInput placeholder="Eight color" formControlName="eightColor">
+              <mat-error *ngIf="fcErr1('eightColor', 'minlength')">Color Name must be at least 2 charaters</mat-error>
+            </mat-form-field>
+            <mat-form-field>
+              <input matInput placeholder="Batch Number" formControlName="eightColorBatch">
+              <mat-error *ngIf="fcErr1('eightColorBatch', 'minlength')">Color Name must be at least 2 charaters</mat-error>
+            </mat-form-field>
+          </div>
+          <div class="row"fxLayout="row">
+            <mat-form-field>
+              <input matInput placeholder="Ninth color" formControlName="ninthColor">
+              <mat-error *ngIf="fcErr1('ninthColor', 'minlength')">Color Name must be at least 2 charaters</mat-error>
+            </mat-form-field>
+            <mat-form-field>
+              <input matInput placeholder="Batch Number" formControlName="ninthColorBatch">
+              <mat-error *ngIf="fcErr1('ninthColorBatch', 'minlength')">Color Name must be at least 2 charaters</mat-error>
+            </mat-form-field>
+          </div>
+          <div class="row"fxLayout="row">
+            <mat-form-field>
+              <input matInput placeholder="Tenth color" formControlName="tenthColor">
+              <mat-error *ngIf="fcErr1('tenthColor', 'minlength')">Color Name must be at least 2 charaters</mat-error>
+            </mat-form-field>
+            <mat-form-field>
+              <input matInput placeholder="Batch Number" formControlName="tenthColorBatch">
+              <mat-error *ngIf="fcErr1('tenthColorBatch', 'minlength')">Color Name must be at least 2 charaters</mat-error>
+            </mat-form-field>
+          </div>
+          <button mat-button color="white" type="submit" [disabled]="finishedTattooForm.invalid" fxFlexAlign="center">
+            Next
+          </button>
+        </form>
+      </mat-card-content>
+    </mat-card>
+  </div>
+</div>
+

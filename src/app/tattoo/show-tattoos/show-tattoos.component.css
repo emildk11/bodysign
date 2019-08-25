@@ -1,0 +1,41 @@
+.body {
+  width: 100%;
+}
+
+.costumer {
+  margin-right: 20px;
+  margin-top: 10px;
+}
+
+.mat-card, mat-table  {
+  background-color: #DBDBDB;
+  margin-left: 0px;
+}
+
+.mat-header-cell, mat-cell, mat-card-title {
+  color: red;
+  margin-right: 20px;
+  margin-left: 0px;
+}
+
+.tattoo {
+  margin-top: 10px;
+  margin-right: 20px;
+}
+
+.btn {
+  margin-top: 20px;
+}
+
+mat-cell:first-child, mat-footer-cell:first-child, mat-header-cell:first-child {
+  padding: 0px;
+}
+
+.Search {
+  background-color: #DBDBDB;
+  color: red;
+  margin-top: 10px;
+  margin-right: 20px;
+  height: 100%;
+  padding: 5px;
+}

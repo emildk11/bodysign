@@ -1,0 +1,30 @@
+.body {
+  width: 100%;
+}
+
+.costumer {
+  margin-right: 20px;
+  margin-top: 10px;
+}
+
+.mat-card, mat-table  {
+  background-color: #DBDBDB;
+}
+
+.mat-header-cell, mat-cell, mat-card-title {
+  color: red;
+  margin-right: 20px;
+}
+
+.tattoo {
+  margin-top: 10px;
+  margin-right: 20px;
+}
+
+.mat-header-cell, mat-cell {
+  width: auto;
+}
+
+.btn{
+  margin-top: 20px;
+}

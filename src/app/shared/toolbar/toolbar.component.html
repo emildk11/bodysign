@@ -1,0 +1,12 @@
+<div class="nav">
+<mat-toolbar>
+  <mat-toolbar-row fxLayout="row">
+    <button mat-mini-fab color="white" (click)="toggleNav()" *ngIf="isLoggedIn"><mat-icon>list</mat-icon> </button>
+    <span fxFlex fxFlexOffset="10px"> <img src="https://firebasestorage.googleapis.com/v0/b/bodysigns-93c93.appspot.com/o/LOGOBSPAI.png?alt=media&token=8f89c653-a5a1-410c-aa08-935b005fd7f7" height="70"></span>
+    <div class="admin" *ngIf="isLoggedIn"></div>
+    <button mat-mini-fab color="white" (click)="logout()" *ngIf="isLoggedIn"><mat-icon>exit_to_app</mat-icon> </button>
+    <div class="admin" *ngIf="!isLoggedIn"> Admin Login </div>
+    <button mat-mini-fab color="white" (click)="login()" *ngIf="!isLoggedIn"><mat-icon>input</mat-icon> </button>
+  </mat-toolbar-row>
+</mat-toolbar>
+</div>

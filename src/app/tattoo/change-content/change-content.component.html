@@ -1,0 +1,193 @@
+
+<div class="body">
+  <button mat-stroked-button (click)="getAllDays()">
+    Change Store Hours
+  </button>
+  <button mat-stroked-button (click)="changeStoreInfo()">
+    Change Store Info
+  </button>
+  <button mat-stroked-button (click)="changeContentMenu()">
+    Change Content
+  </button>
+  <div class="changes" fxLayout="row">
+  <div fxLayout="column" *ngIf="storeHours == true">
+    <div class="box" >
+      <mat-card>
+        <table mat-table [dataSource]="dataSource">
+          <ng-container matColumnDef="day">
+            <th *matHeaderCellDef> Day </th>
+            <td mat-cell *matCellDef="let day" (click)="getDay(day)"> {{day.name}}  </td>
+          </ng-container>
+          <ng-container matColumnDef="timeFrom">
+            <th mat-header-cell *matHeaderCellDef> Time From </th >
+            <td mat-cell *matCellDef="let day" (click)="getDay(day)"> {{day.timeFrom}}  </td>
+          </ng-container>
+          <ng-container matColumnDef="timeTo">
+            <th mat-header-cell *matHeaderCellDef> Time To </th>
+            <td mat-cell *matCellDef="let day" (click)="getDay(day)"> {{day.timeTo}}  </td>
+          </ng-container>
+          <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+          <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+        </table>
+      </mat-card>
+    </div>
+  </div>
+  <div class="time" *ngIf="thisDay && storeHours == true">
+    <div class="box" >
+      Change time for monday, tuesday, wensday, thursday, friday, saturday or sunday.
+      <mat-card>
+        <mat-card-header>
+          <mat-card-title>
+            Change Time:
+          </mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+          <form (ngSubmit)="changeTime()" [formGroup]="changeTimeForm" novalidate fxLayout="column">
+            <mat-form-field>
+              <input matInput placeholder={{thisDay.name}} formControlName="name">
+            </mat-form-field>
+            <mat-form-field>
+              <input matInput placeholder={{thisDay.timeFrom}} formControlName="timeFrom">
+            </mat-form-field>
+            <mat-form-field>
+              <input matInput placeholder={{thisDay.timeTo}} formControlName="timeTo">
+            </mat-form-field>
+            <button mat-button color="white" type="submit" [disabled]="changeTimeForm.invalid" fxFlexAlign="center">
+              Next
+            </button>
+          </form>
+        </mat-card-content>
+      </mat-card>
+    </div>
+  </div>
+    <div class="changes" >
+    <div class="info" *ngIf="storeInfo == true">
+      <div class="box" fxLayout="row">
+        <mat-card>
+          <table mat-table [dataSource]="dataSource1">
+            <ng-container matColumnDef="name">
+              <th *matHeaderCellDef> Shop Name </th>
+              <td mat-cell *matCellDef="let shop" (click)="getShop(shop)"> {{shop.name}}  </td>
+            </ng-container>
+            <ng-container matColumnDef="adress">
+              <th *matHeaderCellDef> Shop Adress </th>
+              <td mat-cell *matCellDef="let shop" (click)="getShop(shop)"> {{shop.adress}}  </td>
+            </ng-container>
+            <ng-container matColumnDef="zipcode">
+              <th *matHeaderCellDef> Shop Zipcode </th>
+              <td mat-cell *matCellDef="let shop" (click)="getShop(shop)"> {{shop.zipcode}}  </td>
+            </ng-container>
+            <ng-container matColumnDef="city">
+              <th *matHeaderCellDef> Shop City </th>
+              <td mat-cell *matCellDef="let shop" (click)="getShop(shop)"> {{shop.city}}  </td>
+            </ng-container>
+            <ng-container matColumnDef="email">
+              <th *matHeaderCellDef> Shop Email </th>
+              <td mat-cell *matCellDef="let shop" (click)="getShop(shop)"> {{shop.email}}  </td>
+            </ng-container>
+            <ng-container matColumnDef="phone">
+              <th *matHeaderCellDef> Shop Phone </th>
+              <td mat-cell *matCellDef="let shop" (click)="getShop(shop)"> {{shop.phone}}  </td>
+            </ng-container>
+            <tr mat-header-row *matHeaderRowDef="displayedColumns1"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumns1"></tr>
+          </table>
+        </mat-card>
+      </div>
+    </div>
+    <div class="shop" *ngIf="thisShop && storeInfo == true">
+      <div class="box" >
+        Change shop information.
+        <mat-card>
+          <mat-card-header>
+            <mat-card-title>
+              Change Shop:
+            </mat-card-title>
+          </mat-card-header>
+          <mat-card-content>
+            <form (ngSubmit)="changeShop()" [formGroup]="changeShopForm" novalidate fxLayout="column">
+              <mat-form-field>
+                <input matInput value={{thisShop.name}} placeholder="Shop Name" formControlName="shopName">
+              </mat-form-field>
+              <mat-form-field>
+                <input matInput value={{thisShop.phone}} placeholder="Phone"formControlName="phone">
+              </mat-form-field>
+              <mat-form-field>
+                <input matInput value={{thisShop.email}} placeholder="E-mail"formControlName="email">
+              </mat-form-field>
+              <mat-form-field>
+                <input matInput value={{thisShop.adress}} placeholder="Adress"formControlName="adress">
+              </mat-form-field>
+              <mat-form-field>
+                <input matInput value={{thisShop.zipcode}} placeholder="Zip code"formControlName="zipcode">
+              </mat-form-field>
+              <mat-form-field>
+                <input matInput value={{thisShop.city}} placeholder="City"formControlName="city">
+              </mat-form-field>
+              <button mat-button color="white" type="submit" [disabled]="changeShopForm.invalid" fxFlexAlign="center">
+                Next
+              </button>
+            </form>
+          </mat-card-content>
+        </mat-card>
+      </div>
+    </div>
+    </div>
+  <div >
+    </div>
+</div>
+  <div class="time" *ngIf="sideContent == true" fxLayout="row">
+    <div class="box" fxLayout="row">
+      <mat-card>
+        <mat-card-header>
+          <mat-card-title>
+            Change Top Content:
+          </mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+          <form (ngSubmit)="changeTopContent()" [formGroup]="changeTopContentForm" novalidate fxLayout="column">
+            <mat-form-field>
+              <input matInput placeholder="Top" formControlName="name">
+            </mat-form-field>
+            <mat-form-field>
+              <input matInput placeholder="Headline" formControlName="headline">
+            </mat-form-field>
+            <mat-form-field>
+              <input matInput placeholder="New Content" formControlName="bsContent">
+            </mat-form-field>
+            <button mat-button color="white" type="submit" [disabled]="changeTopContentForm.invalid" fxFlexAlign="center">
+              Next
+            </button>
+          </form>
+        </mat-card-content>
+      </mat-card>
+    </div>
+    <div class="box" fxLayout="row">
+    <mat-card>
+      <mat-card-header>
+        <mat-card-title>
+          Change Bottom Content:
+        </mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        <form (ngSubmit)="changeBottomContent()" [formGroup]="changeBottomContentForm" novalidate fxLayout="column">
+          <mat-form-field>
+            <input matInput placeholder="Bottem" formControlName="name">
+          </mat-form-field>
+          <mat-form-field>
+            <input matInput placeholder="Headline" formControlName="headline">
+          </mat-form-field>
+          <mat-form-field>
+            <input matInput placeholder="New Content" formControlName="bsContent">
+          </mat-form-field>
+          <button mat-button color="white" type="submit" [disabled]="changeBottomContentForm.invalid" fxFlexAlign="center">
+            Next
+          </button>
+        </form>
+      </mat-card-content>
+    </mat-card>
+  </div>
+
+  </div>
+</div>
+

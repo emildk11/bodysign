@@ -1,0 +1,48 @@
+. body {
+}
+
+.Input {
+  background-color: #DBDBDB;
+  margin-top: 10px;
+  margin-right: 20px;
+  color: red;
+  padding: 10px;
+}
+
+.mat-stroked-button {
+  background-color: #DBDBDB;
+  color: red;
+  margin-right: 10px;
+  margin-bottom: 10px;
+  margin-top: 10px;
+}
+
+.box {
+  margin-right: 20px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  width: 180px;
+}
+
+.mat-card {
+  padding: 0px;
+  width: auto;
+}
+
+.mat-row {
+  height: auto;
+}
+
+td.mat-cell, td.mat-cell:first-child, td.mat-footer-cell, td.mat-footer-cell:first-child, th.mat-header-cell, th.mat-header-cell:last-child, td.mat-cell:last-child{
+  color: #DA0100;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+.mat-cell {
+  padding: 4px 4px 4px 0;
+}
+
+td.mat-cell {
+  text-align: center;
+}

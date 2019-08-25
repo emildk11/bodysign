@@ -1,0 +1,33 @@
+<div fxLayout="row" >
+  <div class="choose" *ngIf="menu == true">
+    <p></p>
+    Please choose New Content, New Tattoo or View/Create Customer<br>
+    New tattoos can only be made on customers that already exists.
+    <p></p>
+    <br>
+    <button mat-stroked-button (click)="newContent()">
+      New Content
+    </button>
+    <button mat-stroked-button (click)="newTattoo()">
+      New Tattoo
+    </button>
+    <button mat-stroked-button (click)="createCostumer()">
+      Create Costumer
+    </button>
+    <button mat-stroked-button (click)="viewCostumer()">
+      View Costumer
+    </button>
+  </div>
+  <div class="tattoo-list">
+    <app-costumer *ngIf="costumerChoice == true"></app-costumer>
+    <app-tattoo-list *ngIf="tattooChoice == true"></app-tattoo-list>
+    <app-change-content *ngIf="contentChoice == true"></app-change-content>
+    <app-show-tattoos *ngIf="showTattooChoice == true"></app-show-tattoos>
+  </div>
+  <div class="back" *ngIf="backMenu == true">
+    <button mat-stroked-button (click)="back()">
+      Back to Admin
+    </button>
+  </div>
+</div>
+

@@ -1,0 +1,32 @@
+  <div fxLayout="row" >
+    <div class="costumer">
+    <mat-card>
+      <mat-card-header>
+        <mat-card-title>
+          Create Costumer:
+        </mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        <form (ngSubmit)="createCostumer()" [formGroup]="createCostumerForm" novalidate fxLayout="column">
+          <mat-form-field>
+            <input matInput placeholder="First Name" formControlName="firstName">
+            <mat-error *ngIf="fcErr('firstName', 'required')">First Name is required</mat-error>
+            <mat-error *ngIf="createCostumerForm.get('firstName').hasError('minlength') && !createCostumerForm.get('firstName').hasError('required')">First Name must be at least 2 charaters</mat-error>
+          </mat-form-field>
+          <mat-form-field>
+            <input matInput placeholder="Middle Name" formControlName="middleName">
+          </mat-form-field>
+          <mat-form-field>
+            <input matInput placeholder="Last Name" formControlName="lastName">
+            <mat-error *ngIf="fcErr('lastName', 'required')">Last Name is required</mat-error>
+            <mat-error *ngIf="createCostumerForm.get('lastName').hasError('minlength') && !createCostumerForm.get('lastName').hasError('required')">Middle Name must be at least 2 charaters</mat-error>
+          </mat-form-field>
+          <button mat-button color="white" type="submit" [disabled]="createCostumerForm.invalid" fxFlexAlign="center">
+            Next
+          </button>
+        </form>
+      </mat-card-content>
+    </mat-card>
+    </div>
+  </div>
+

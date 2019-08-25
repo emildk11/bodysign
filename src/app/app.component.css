@@ -1,0 +1,16 @@
+.router {
+  margin: auto;
+}
+
+mat-sidenav {
+  background: white;
+  width: 150px;
+}
+
+mat-sidenav-content {
+  background-image: url(https://firebasestorage.googleapis.com/v0/b/bodysigns-93c93.appspot.com/o/ct45242-filt.jpg?alt=media&token=edce5f59-f01a-44f1-8b6f-0a292c067de8);
+}
+
+footer {
+  background-color: #DBDBDB;
+}

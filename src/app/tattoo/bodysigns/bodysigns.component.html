@@ -1,0 +1,83 @@
+<div class="body" fxLayout="row" >
+  <div class="content" fxLayout="column">
+  <div class="header">
+    <img src="https://firebasestorage.googleapis.com/v0/b/bodysigns-93c93.appspot.com/o/BODYBANNER.png?alt=media&token=e6952cd4-d9ac-4796-a206-3266e9fb1e84">
+  </div>
+
+  <div class="A">
+    {{bsTopContent.headline}}<br><br>
+    {{bsTopContent.bsContent}}
+  </div>
+
+   <div class="B">
+  </div>
+
+  <div class="C">
+    {{bsBottomContent.headline}}<br><br>
+    {{bsBottomContent.bsContent}}
+  </div>
+  </div>
+
+  <div class="right-side" fxLayout="column" >
+    <div class="butik" *ngIf="shop">
+      BodySigns Tattoo & Piercing<br>
+      {{shop.adress}}<br>
+      {{shop.zipcode}} {{shop.city}}<br><br>
+    </div>
+
+    <div class="Åbningstider">
+      Butikkens åbningstider:<br><br>
+      <div fxLayout="column" >
+        <div class="costumer" >
+          <mat-card>
+            <table mat-table [dataSource]="dataSource">
+              <ng-container matColumnDef="day">
+                <th mat-header-cell *matHeaderCellDef> Dag </th>
+                <td mat-cell *matCellDef="let day" > {{day.name}}  </td>
+              </ng-container>
+              <ng-container matColumnDef="timeFrom">
+                <th mat-header-cell *matHeaderCellDef> Åbent Fra </th>
+                <td mat-cell *matCellDef="let day" > {{day.timeFrom}}  </td>
+              </ng-container>
+              <ng-container matColumnDef="timeTo">
+                <th mat-header-cell *matHeaderCellDef> Åbent Til  </th>
+                <td mat-cell *matCellDef="let day" > {{day.timeTo}}  </td>
+              </ng-container>
+              <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+              <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+            </table>
+          </mat-card>
+        </div>
+
+    </div><br>
+    <div class="Kontakt" *ngIf="shop">
+      Telefon: {{shop.phone}}<br>
+      E-mail: {{shop.email}}<br><br>
+      <a href="https://www.facebook.com/Bodysigns-Tattoo-Piercing-190154171004424/" target="_blank">FaceBook Side</a><br>
+      <a href="https://www.facebook.com/groups/269242327959/" target="_blank">FaceBook Gruppe</a><br>
+    </div><br>
+
+    <div class="tattoo-info">
+      Overvejer du at få en tatovering<br>
+      <a href="http://thinkbeforeyouink.dk/" target="_blank">Think Before You Ink</a><br>
+
+    </div><br>
+    <div class="tattoo-farver">
+      Vi bruger primært farver fra
+      <a href="https://www.eternaltattoosupply.com" target="_blank">Eternal Ink</a>.<br>
+    </div><br>
+
+    <div class="piercing-info">
+      Inden du får en piercing tænk over det<br>
+    </div><br>
+
+    <div class="piercing">
+      Vi laver alle former for piercinger og bruger primært Titanium<br><br>
+     </div><br>
+
+    <div class="christian">
+      <a href="http://www.dput.dk/" target="_blank">Vi er medlem af DPUT</a><br>
+    </div><br>
+  </div>
+</div>
+</div>

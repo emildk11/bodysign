@@ -1,0 +1,16 @@
+.costumer {
+  margin-right: 20px;
+  margin-top: 10px;
+}
+
+.mat-card, mat-table, button  {
+  background-color: #DBDBDB;
+}
+
+.mat-header-cell, mat-cell, mat-card-title, button {
+  color: red;
+}
+
+.ng-container {
+  margin-right: 10px;
+}

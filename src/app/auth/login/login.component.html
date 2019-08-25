@@ -1,0 +1,26 @@
+<div fxLayout="row" fxLayoutAlign="center">
+  <mat-card >
+    <mat-card-header>
+      <mat-card-title>
+        Please type in Email and Password to Login
+      </mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+<form (ngSubmit)="login()" [formGroup]="loginForm" novalidate fxLayout="column">
+  <mat-form-field>
+    <input matInput placeholder="E-mail" formControlName="email">
+    <mat-error *ngIf="fcErr('email', 'required')">Email is required</mat-error>
+    <mat-error *ngIf="fcErr('email', 'email', ['required'])">Email is invalid</mat-error>
+  </mat-form-field>
+  <mat-form-field>
+    <input matInput placeholder="Password" formControlName="password">
+    <mat-error *ngIf="fcErr('password', 'required')">Password is required</mat-error>
+    <mat-error *ngIf="loginForm.get('password').hasError('minlength') && !loginForm.get('password').hasError('required')">Password must be at least 6 charaters</mat-error>
+  </mat-form-field>
+  <button mat-button color="white" type="submit" [disabled]="loginForm.invalid" fxFlexAlign="center">
+    login
+  </button>
+</form>
+</mat-card-content>
+</mat-card>
+</div>

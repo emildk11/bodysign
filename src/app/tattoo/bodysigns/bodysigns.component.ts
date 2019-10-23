@@ -8,7 +8,11 @@ import {BsContent} from '../shared/bs.content';
 @Component({
   selector: 'app-bodysigns',
   templateUrl: './bodysigns.component.html',
-  styleUrls: ['./bodysigns.component.css']
+  styleUrls: ['./bodysigns.component.css',
+    './css/animate.css',
+    './css/prettyPhoto.css',
+    './css/responsive.css',
+    './css/retina.css']
 })
 export class BodysignsComponent implements OnInit {
 

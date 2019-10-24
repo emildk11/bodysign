@@ -2,16 +2,16 @@
 }
 
 .Input {
-  background-color: #DBDBDB;
+  background-color: #F0F1E5;
   margin-top: 10px;
   margin-right: 20px;
-  color: red;
+  color: black;
   padding: 10px;
 }
 
 .mat-stroked-button {
-  background-color: #DBDBDB;
-  color: red;
+  background-color: #F0F1E5;
+  color: black;
   margin-right: 10px;
   margin-bottom: 10px;
   margin-top: 10px;
@@ -34,7 +34,7 @@
 }
 
 td.mat-cell, td.mat-cell:first-child, td.mat-footer-cell, td.mat-footer-cell:first-child, th.mat-header-cell, th.mat-header-cell:last-child, td.mat-cell:last-child{
-  color: #DA0100;
+  color: #F0F1E5;
   padding-left: 5px;
   padding-right: 5px;
 }

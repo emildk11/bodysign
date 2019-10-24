@@ -4,11 +4,11 @@
 }
 
 .mat-card, mat-table, button  {
-  background-color: #DBDBDB;
+  background-color: #F0F1E5;
 }
 
 .mat-header-cell, mat-cell, mat-card-title, button {
-  color: red;
+  color: black;
 }
 
 .ng-container {

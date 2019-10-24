@@ -8,11 +8,11 @@
 }
 
 .mat-card, mat-table  {
-  background-color: #DBDBDB;
+  background-color: #F0F1E5;
 }
 
 .mat-header-cell, mat-cell, mat-card-title {
-  color: red;
+  color: black;
   margin-right: 20px;
 }
 
